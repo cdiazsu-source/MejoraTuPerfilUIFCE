@@ -2,7 +2,7 @@
 
 Simulador de perfiles de LinkedIn para los monitores de la Unidad de Informática de la Facultad de Ciencias Económicas (UIFCE), Universidad Nacional de Colombia.
 
-Elige tu pregrado, tu área y tu cargo. El simulador muestra una vista previa en vivo de tu perfil y genera textos listos para copiar, en español o en inglés interpretado (no traducido literalmente):
+Escribe tu nombre: si estás en el directorio de monitores, el simulador completa tu pregrado y el nivel de tu cargo, y solo falta elegir el área. También puedes elegir todo a mano. El simulador muestra una vista previa en vivo de tu perfil y genera textos listos para copiar, en español o en inglés interpretado (no traducido literalmente):
 
 - Titular (3 opciones), «Acerca de» y experiencia con funciones, logros y habilidades de cada cargo.
 - Tres tonos: estándar, corporativo e innovación tecnológica.
