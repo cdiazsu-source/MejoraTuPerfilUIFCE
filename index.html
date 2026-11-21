@@ -103,6 +103,8 @@ main>section.blk:first-child{border-top:0}
 .vav{position:absolute;left:3.5%;bottom:0;width:clamp(64px,15%,128px);aspect-ratio:1;border-radius:50%;border:4px solid var(--surface);background:linear-gradient(160deg,#c3cde0,#8d9bb8);display:grid;place-items:center;color:#fff;font-size:2rem;transform:translateY(0)}
 .vframe{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
 .vframe .vav{bottom:2px}
+.vdl{display:grid;gap:6px}
+.cnt.ok{color:var(--ok);font-weight:600}
 .vbar{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
 .vbar .vname{font-size:.88rem;color:var(--navy);text-align:center}
 .vbar [data-step="-1"] svg{transform:rotate(90deg)}.vbar [data-step="1"] svg{transform:rotate(-90deg)}
@@ -563,7 +565,7 @@ const UI={
   expand:'Expandir todo',collapse:'Contraer todo',copy:'Copiar texto',copied:'¡Copiado!',copyAll:'Copiar todo',copySec:'Copiar sección completa',
   name:'Nombre Apellido',loc:'Bogotá, Colombia',connect:'Conectar',msg:'Mensaje',
   s1:'Foto de portada',s1s:'Solo el logo de la UIFCE · 1584 × 396 px',s2:'Titular / Encabezado',s2s:'3 opciones recomendadas',s3:'Acerca de',s3s:'Extracto personalizado',s4:'Experiencia profesional',s4s:'Cargo, logros y habilidades',
-  cvDim:'Dimensiones',cvFile:'Archivo del logo',cvNote:'Para la portada usa únicamente el logo de la unidad. Elige una foto de la Facultad que ya lo lleva aplicado.',gal:'Portadas listas',prevC:'Anterior',nextC:'Siguiente',hideAv:'Ocultar foto de perfil',showAv:'Mostrar foto de perfil',galNote:'Toca una para verla en tu vista previa.',galPlain:'Fondo liso',noGrad:'Ver sin degradado azul',withGrad:'Ver con degradado azul',
+  cvDim:'Dimensiones',cvFile:'Archivo del logo',cvNote:'Para la portada usa únicamente el logo de la unidad. Elige una foto de la Facultad que ya lo lleva aplicado.',gal:'Portadas listas',prevC:'Anterior',nextC:'Siguiente',hideAv:'Ocultar foto de perfil',showAv:'Mostrar foto de perfil',galNote:'Toca una para verla en tu vista previa.',galPlain:'Fondo liso',dlGrad:'Descargar con degradado',dlClean:'Descargar sin degradado',openImg:'Abrir imagen',repoAll:'Ver todas en GitHub',dlDone:'¡Descargada!',dlFail:'No se pudo descargar desde esta vista. Usa «Abrir imagen» y guárdala con clic derecho, o descárgala desde GitHub.',dlHint:'Las imágenes se descargan desde el repositorio de GitHub.',dlNone:'Elige una portada para descargarla.',noGrad:'Ver sin degradado azul',withGrad:'Ver con degradado azul',
   cvSteps:['<b>Elige una portada lista</b> de la galería (clic derecho › guardar imagen) o toma el archivo de la carpeta <b>portadas</b>.','<b>Súbela a LinkedIn</b> desde editar portada. Ya mide 1584 × 396 px.','<b>La foto de perfil queda abajo a la izquierda:</b> por eso el logo va arriba.','<b>¿Prefieres otra foto?</b> Pon <b>Logo UIFCE.png</b> en blanco arriba a la izquierda, sobre un fondo oscuro.'],
   cvNo:'Evita',cvNoL:['Añadir fotos, textos largos o más logos junto al de la UIFCE.','Estirar, deformar o recolorear el logo.','Usar una imagen pixelada o con el logo muy pequeño.'],
   ctaT:'Plantillas de portada UIFCE',ctaP:'Descarga el logo y la plantilla institucional.',ctaB:'Abrir carpeta de plantillas',copyLink:'Copiar enlace',
@@ -578,7 +580,7 @@ const UI={
   expand:'Expand all',collapse:'Collapse all',copy:'Copy text',copied:'Copied!',copyAll:'Copy all',copySec:'Copy full section',
   name:'Your Name',loc:'Bogotá, Colombia',connect:'Connect',msg:'Message',
   s1:'Cover photo',s1s:'UIFCE logo only · 1584 × 396 px',s2:'Headline',s2s:'3 recommended options',s3:'About',s3s:'Tailored summary',s4:'Experience',s4s:'Title, achievements and skills',
-  cvDim:'Dimensions',cvFile:'Logo file',cvNote:'For the cover, use the unit logo only. Pick a School photo that already has it applied.',gal:'Ready-made covers',prevC:'Previous',nextC:'Next',hideAv:'Hide profile photo',showAv:'Show profile photo',galNote:'Tap one to see it in your preview.',galPlain:'Plain background',noGrad:'Show without blue gradient',withGrad:'Show with blue gradient',
+  cvDim:'Dimensions',cvFile:'Logo file',cvNote:'For the cover, use the unit logo only. Pick a School photo that already has it applied.',gal:'Ready-made covers',prevC:'Previous',nextC:'Next',hideAv:'Hide profile photo',showAv:'Show profile photo',galNote:'Tap one to see it in your preview.',galPlain:'Plain background',dlGrad:'Download with gradient',dlClean:'Download without gradient',openImg:'Open image',repoAll:'See all on GitHub',dlDone:'Downloaded!',dlFail:'Could not download from this view. Use “Open image” and save with right-click, or download from GitHub.',dlHint:'Images are downloaded from the GitHub repository.',dlNone:'Pick a cover to download it.',noGrad:'Show without blue gradient',withGrad:'Show with blue gradient',
   cvSteps:['<b>Pick a ready-made cover</b> from the gallery (right-click › save image) or take the file from the <b>portadas</b> folder.','<b>Upload it to LinkedIn</b> from edit cover. It is already 1584 × 396 px.','<b>Your profile photo sits bottom left:</b> that is why the logo is at the top.','<b>Prefer another photo?</b> Place <b>Logo UIFCE.png</b> in white at the top left, over a dark background.'],
   cvNo:'Avoid',cvNoL:['Adding photos, long text or extra logos next to the UIFCE one.','Stretching, distorting or recoloring the logo.','Using a pixelated image or a tiny logo.'],
   ctaT:'UIFCE cover templates',ctaP:'Download the logo and the institutional template.',ctaB:'Open templates folder',copyLink:'Copy link',
@@ -591,6 +593,19 @@ const UI={
 const AREA_LOGO={coordinacion:'co',apoyos_academicos:'aa',cursos_libres:'cl',virtualizacion:'vt',estrategias_tecnologicas:'et',desarrollo_software:'ds',gestion_conocimiento:'gc'};
 
 /* ===================== LÓGICA ===================== */
+const REPO_RAW='https://raw.githubusercontent.com/cdiazsu-source/MejoraTuPerfilUIFCE/main/portadas/';
+const REPO_TREE='https://github.com/cdiazsu-source/MejoraTuPerfilUIFCE/tree/main/portadas';
+const COVER_FILES=['esquina-ventanales','patio-escultura','plaza-estudiantil','fachada-blanca-panoramica','fachada-blanca','entrada-ladrillo','entrada-jardin','campus-panoramico','unal-cesped','edificio-303b','plaza-torre','terrazas-ladrillo','unal-campus'];
+const coverFile=(i,clean)=>clean?{path:`sin-degradado/portada-${i+1}-${COVER_FILES[i]}-sin-degradado.jpg`,name:`portada-${i+1}-${COVER_FILES[i]}-sin-degradado.jpg`}:{path:`portada-${i+1}-${COVER_FILES[i]}.jpg`,name:`portada-${i+1}-${COVER_FILES[i]}.jpg`};
+async function downloadCover(btn){
+ const f=coverFile(+btn.dataset.i,btn.dataset.clean==='1'),msg=document.getElementById('dlMsg'),t=T();
+ try{
+  const r=await fetch(REPO_RAW+f.path);if(!r.ok)throw new Error('http '+r.status);
+  const url=URL.createObjectURL(await r.blob()),a=document.createElement('a');
+  a.href=url;a.download=f.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);
+  msg.textContent=t.dlDone+' '+f.name;msg.className='cnt ok';
+ }catch(e){msg.textContent=t.dlFail;msg.className='cnt warn'}
+}
 const coverSrc=i=>S.clean?ASSETS.coversClean[i]:ASSETS.covers[i];
 const COVER_NAMES={es:['Esquina de ventanales','Patio y escultura','Plaza estudiantil','Fachada blanca (panorámica)','Fachada blanca','Entrada del edificio de ladrillo','Entrada con árbol','Campus panorámico','#UNAL en el césped','Edificio 303 B','Plaza y torre','Terrazas de ladrillo','#UNAL y el campus'],en:['Window corner','Courtyard & sculpture','Student plaza','White building (wide)','White building','Brick building entrance','Entrance with tree','Panoramic campus','#UNAL on the lawn','Building 303 B','Plaza and tower','Brick terraces','#UNAL and the campus']};
 const S={clean:false,tone:'base',cover:-1,avatar:true,lang:'es',career:'Economía',name:'',level:null,example:true,auto:{career:false,area:false,role:false},areaIdx:1,roleIdx:0,openAcc:[true,false,false,false],prevHead:0};
@@ -675,7 +690,7 @@ const P={
  job:'<path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>',
  pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
  grad:'<path d="M21.42 10.92a1 1 0 0 0-.02-1.84l-8.57-3.9a2 2 0 0 0-1.66 0l-8.57 3.9a1 1 0 0 0 0 1.84l8.57 3.9a2 2 0 0 0 1.66 0Z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
- up:'<path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/>',down:'<path d="m7 20 5-5 5 5"/><path d="m7 4 5 5 5-5"/>'
+ dl:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>',up:'<path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/>',down:'<path d="m7 20 5-5 5 5"/><path d="m7 4 5 5 5-5"/>'
 };
 const ic=n=>`<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
 
@@ -744,6 +759,12 @@ function renderAccs(){
    <div class="vbar"><button type="button" class="btn ghost sm" data-step="-1" aria-label="${t.prevC}">${ic('chev')}</button><span class="vname"><b>${esc(S.cover>=0?COVER_NAMES[L][S.cover]:t.galPlain)}</b> · ${S.cover+2} / ${ASSETS.covers.length+1}</span><button type="button" class="btn ghost sm" data-step="1" aria-label="${t.nextC}">${ic('chev')}</button>
     <button type="button" class="btn ghost sm" data-clean="1" aria-pressed="${S.clean}">${S.clean?t.withGrad:t.noGrad}</button>
     <button type="button" class="btn ghost sm" data-av="1" aria-pressed="${S.avatar}">${S.avatar?t.hideAv:t.showAv}</button></div></div>
+  ${S.cover>=0?`<div class="vdl"><div class="skills">
+   <button type="button" class="btn sm" data-dl="1" data-i="${S.cover}" data-clean="0">${ic('dl')} ${t.dlGrad}</button>
+   <button type="button" class="btn sm" data-dl="1" data-i="${S.cover}" data-clean="1">${ic('dl')} ${t.dlClean}</button>
+   <a class="btn ghost sm" href="${REPO_RAW+coverFile(S.cover,S.clean).path}" target="_blank" rel="noopener">${ic('ext')} ${t.openImg}</a>
+   <a class="btn ghost sm" href="${REPO_TREE}" target="_blank" rel="noopener">${ic('ext')} ${t.repoAll}</a></div>
+   <p class="cnt" id="dlMsg">${t.dlHint}</p></div>`:`<p class="cnt">${t.dlNone}</p>`}
   <div><div class="split" style="margin-bottom:10px"><span class="lbl">${t.gal}</span><span class="cnt">${t.galNote}</span></div>
    <div class="gal">${ASSETS.covers.map((_,i)=>`<button type="button" class="thumb${S.cover===i?' on':''}" data-cover="${i}" aria-label="${esc(COVER_NAMES[L][i])}"><img src="${coverSrc(i)}" alt="${esc(COVER_NAMES[L][i])}"><span>${esc(COVER_NAMES[L][i])}</span></button>`).join('')}
     <button type="button" class="thumb plain${S.cover===-1?' on':''}" data-cover="-1" aria-label="${t.galPlain}"><div class="banner"><img src="${ASSETS.logoBlanco}" alt=""></div><span>${t.galPlain}</span></button></div></div>
@@ -821,6 +842,7 @@ $c('toggleAll').addEventListener('click',()=>{
 $c('accs').addEventListener('click',e=>{
  const cb=e.target.closest('[data-ci]');if(cb){doCopy(cb);return}
  const st=e.target.closest('[data-step]');if(st){const n=ASSETS.covers.length+1;S.cover=((S.cover+1+ +st.dataset.step+n)%n)-1;renderAll();return}
+ const dl=e.target.closest('[data-dl]');if(dl){downloadCover(dl);return}
  const cl=e.target.closest('[data-clean]');if(cl){S.clean=!S.clean;renderAll();return}
  const av=e.target.closest('[data-av]');if(av){S.avatar=!S.avatar;renderAccs();return}
  const cv=e.target.closest('[data-cover]');if(cv){S.cover=+cv.dataset.cover;renderAll();return}

@@ -6,7 +6,7 @@ Escribe tu nombre: si estás en el directorio de monitores, el simulador complet
 
 - Titular (3 opciones), «Acerca de» y experiencia con funciones, logros y habilidades de cada cargo.
 - Tres tonos: estándar, corporativo e innovación tecnológica.
-- Portadas de la Facultad con el logo de la Unidad, con y sin degradado azul.
+- Portadas de la Facultad con el logo de la Unidad, con y sin degradado azul, que se pueden descargar desde el simulador.
 
 ## Cómo verlo
 
