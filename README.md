@@ -1,4 +1,4 @@
-# Construye tu LinkedIn
+# Mejora tu perfil UIFCE
 
 Simulador de perfiles de LinkedIn para los monitores de la Unidad de Informática de la Facultad de Ciencias Económicas (UIFCE), Universidad Nacional de Colombia.
 
